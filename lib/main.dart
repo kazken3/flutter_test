@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     });
   }
+
   void _startPressed() {
     if (_time == "00:00") return;
     setState(() {
@@ -85,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
+          child: Column(
+        children: <Widget>[
           Container(
             decoration: BoxDecoration(color: Colors.white),
             width: size.width,
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center, // 中央に設置
               children: <Widget>[
                 Text(
-                  "_time",
+                  _time,
                   style: TextStyle(fontSize: 40),
                 ),
               ],
@@ -190,13 +191,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class CustomButton extends StatelessWidget {
   //コンストラクタ
-  const CustomButton({
-    this.text,
-    this.width,
-    this.height,
-    this.onPressed,
-    Key? key
-  }) : super(key: key);
+  const CustomButton(
+      {this.text, this.width, this.height, this.onPressed, Key? key})
+      : super(key: key);
 
   final VoidCallback? onPressed; //ボタンのコールバック
   final double? width;
@@ -215,7 +212,7 @@ class CustomButton extends StatelessWidget {
             onPrimary: Colors.white,
           ),
           child: Text(
-            text,
+            text!,
             style: TextStyle(color: Colors.black),
           ),
         ));
